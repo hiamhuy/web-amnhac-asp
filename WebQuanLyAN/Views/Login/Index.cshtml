@@ -1,0 +1,68 @@
+﻿@model WebQuanLyAN.Models.Ac
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+@if ((string)TempData["IsLoginSuccess"] == "false")
+{
+    <script>alert('"Đăng nhập thất bại"')</script>
+    TempData["IsLoginSuccess"] = "null";
+}
+@if ((string)TempData["ThongBao"] == "true")
+{
+    <script>alert('"Đăng ký thành công!"')</script>
+    TempData["ThongBao"] = "null";
+}
+<div>
+    <div class="overlay">
+        @using (Html.BeginForm("LoginProcess", "Login"))
+        {
+            <div class="con">
+                <header class="head-form">
+                    <h2>Đăng Nhập</h2>
+                    <br />
+                </header>
+                <br>
+                <div class="field-set">
+                    Tài Khoản:
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+
+                    <!--   user name Input-->
+                    <input class="form-input" id="TaiKhoan" type="text" placeholder="Email/SĐT" name="TaiKhoan">
+                    <br>
+
+                    <!--   Password -->
+                    Mật Khẩu:
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <!--   Password Input-->
+                    <input class="form-input" type="password" placeholder="Mật khẩu" id="MatKhau" name="MatKhau">
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+                    <br>
+                    <input class="log-in" type="submit" value="Đăng nhập" />
+                </div>
+
+                <div class="group">
+                    <div class="btn">
+                        <a href="@Url.Action("Index","SignUp")">
+                            Đăng Ký
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebQuanLyAN.Models.Nhacsi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+<h2 class="text" style="text-align:center">Danh sách nhạc sĩ</h2>
+
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+
+@using (Html.BeginForm("Search", "NhacSi", FormMethod.Get))
+{
+<div class="wrap-left">
+    <div class="search-group">
+        @Html.TextBox("search") <button class="button-class" type="submit"><ion-icon name="search-outline"></ion-icon></button>                            
+    </div>
+    
+</div>
+<div class="wrap-right">
+    <div class="fill-one">
+        <a href="/NhacSi/Create">
+            <span class="icon" title="Thêm mới nhạc sĩ"><ion-icon name="add-circle-outline"></ion-icon></span>
+        </a>
+    </div>
+</div>
+}
+
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Tên Nhạc Sĩ</th>
+                <th>Năm Sinh</th>
+                <th>Quê Quán</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.data)
+             {
+                <tr>
+                    <td>@item.tenNS</td>
+                    <td>@item.namS.ToShortDateString()</td>
+                    <td>@item.queQ</td>
+                    <td>
+                        <div class="icon-content">
+                            <a href = "/NhacSi/Edit?id=@item.Id" >
+                                <span class="icon" title="Sửa"><ion-icon name="create-outline"></ion-icon></span>
+                            </a>
+                            <a href="/NhacSi/Delete?id=@item.Id">
+                                <span class="icon" title="Xóa"><ion-icon name="trash-outline"></ion-icon></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+             }
+    </table>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model WebQuanLyAN.Models.Ac
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+
+
+<h2>Cập nhật họ tên</h2>
+
+
+<div class="table-wrapper">
+    @using (Html.BeginForm("suaten", "TTCN"))
+    {
+        <table class="fl-table">
+            <tr>
+                <td> @Html.HiddenFor(model => model.TaiKhoan)</td>
+            </tr>
+            <tr>
+                <td> @Html.HiddenFor(model => model.MatKhau)</td>
+            </tr>
+            <tr>
+                <td>
+                    Họ tên:
+                </td>
+                <td>
+                    <input class="form-input" id="HoTen" type="text" placeholder="@Model.HoTen" name="HoTen" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Cập nhật" />
+                </td>
+            </tr>
+        </table>
+
+    }
+</div>

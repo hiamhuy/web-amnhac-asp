@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+    <title> Trang Chủ </title>
+    <link rel="stylesheet" type="text/css" href="~/css/Style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    @*<script src="~/js/active.js" type="text/javascript"></script>*@
+    @*<script src="~/js/active.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.js"></script>*@
+</head> 
+<body>
+    <div class="navigation">
+        <div class="logo">
+            <a href="@Url.Action("Index", "Home")"> <img src="~/image/logo.png" title="Music Store" /></a>
+        </div>
+        <ul>
+            <li class="list active">
+                @*<b></b>
+                <b></b>*@
+                <a href="@Url.Action("Index", "Home")" data-id="tab-01">
+                    <span class="icon" title="Trang chủ"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Trang chủ</span>
+                </a>
+            </li>
+            <li class="list">
+                @*<b></b>
+                <b></b>*@
+                <a href="@Url.Action("Index", "TTCN")" data-id="tab-02">
+                    <span class="icon" title="Thông tin cá nhân">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </span>
+                    <span class="title">Thông tin tài khoản</span>
+                </a>
+            </li>
+            <li class="list">
+                @*<b></b>
+                <b></b>*@
+                <a href="@Url.Action("Index", "DSBH")" data-id="tab-03">
+                    <span class="icon" title="Quản lý bài hát">
+                        <ion-icon name="musical-notes-outline"></ion-icon>
+                    </span>
+                    <span class="title">Quản lý bài hát</span>
+                </a>
+            </li>
+            <li class="list">
+                @*<b></b>
+                <b></b>*@
+                <a href="@Url.Action("Index", "Nhacsi")" data-id="tab-04">
+                    <span class="icon" title="Quản lý nhạc sĩ">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Quản lý nhạc sĩ</span>
+                </a>
+            </li>
+            <li class="list">
+                @*<b></b>
+                <b></b>*@
+                <a href="@Url.Action("Index", "TheLoai")" data-id="tab-05">
+                    <span class="icon" title="Thể loại">
+                        <ion-icon name="shapes-outline"></ion-icon>
+                    </span>
+                    <span class="title">Thể loại</span>
+                </a>
+            </li>
+        </ul>
+        <div class="logout">
+            <a href="@Url.Action("Index","Login")">
+                <span class="icon" title="Thoát">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </span>
+                <span class="title">Thoát</span>
+                <script type="text/javascript">
+                    function preventBack() { window.history.forward(); }
+                    setTimeout("preventBack()", 0);
+                    window.onunload = function () { null };
+                </script>
+            </a>
+        </div>
+    </div>
+    <div class="toggle">
+        <span class="icon" 
+              title="Thành viên nhóm:
+              Nguyễn Quốc Việt
+              Hà Đức Huy
+              Triệu Minh Đức
+              Hoàng Minh Chiến
+              Nguyễn Công Lực"><ion-icon name="information-circle-outline"></ion-icon></span>
+    </div>
+    @RenderBody()
+</body>
+</html>

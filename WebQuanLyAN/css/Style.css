@@ -1,0 +1,612 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+
+body {
+    min-height: 0 auto;
+    background: #2a213a;
+    margin-left:260px;
+}
+
+.navigation {
+    position: fixed;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    width: 250px;
+    border-radius: 10px;
+    box-sizing: initial;
+    border-left: 5px solid #432275;
+    background: #432275;
+    transition: width 0.5s;
+    overflow: hidden;
+}
+
+.navigation .logo {
+    margin-top: 20px;
+    margin-left: 12px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/*.navigation ul li.active {
+    background: #2a213a;
+    display:block;
+}*/
+
+.navigation ul li b:nth-child(1) {
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 100%;
+    display: none;
+    background: #2a213a;
+}
+
+.navigation ul li b:nth-child(1)::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+    background: #432275;
+}
+
+.navigation ul li b:nth-child(2) {
+    position: absolute;
+    bottom: -20px;
+    height: 20px;
+    width: 100%;
+    display: none;
+    background: #2a213a;
+}
+
+.navigation ul li b:nth-child(2)::before {
+     content: ' ';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     border-top-right-radius: 20px;
+     background: #432275;
+}
+
+.navigation ul li.active b:nth-child(1),
+.navigation ul li.active b:nth-child(2) {
+      display: block;
+}
+
+.navigation ul li.sc {
+      top: 300px;
+}
+
+.navigation ul li a {
+     position: relative;
+     display: block;
+     width: 100%;
+     display: flex;
+     text-decoration: none;
+     color: #ffffff;
+}
+
+.navigation ul li a .icon {
+     position: relative;
+     display: block;
+     min-width: 60px;
+     height: 60px;
+     line-height: 60px;
+     text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+     pointer-events: none;
+     font-size: 1.5em;
+}
+
+.navigation ul li a .title {
+     position: relative;
+     display: block;
+     padding-left: 4px;
+     height: 60px;
+     line-height: 50px;
+     white-space: normal;
+}
+.navigation ul li a .title:hover {
+     color: #c94444;
+     animation: animation 0.5s ease-in-out infinite alternate;
+}
+@keyframes animation {
+    0% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+.navigation .logout {
+     margin-top: 620px;
+     margin-left: 30px;
+}
+
+.navigation .logout a {
+     position: relative;
+     display: block;
+     width: 100%;
+     display: flex;
+     text-decoration: none;
+     color: #ffffff;
+}
+
+.navigation .logout a .icon {
+     position: relative;
+     display: block;
+     min-width: 40px;
+     height: 80px;
+     line-height: 28px;
+     text-align: center;
+}
+
+.navigation .logout a .icon ion-icon {
+     pointer-events: none;
+     font-size: 2em;
+}
+
+.navigation .logout a .title {
+     position: relative;
+     display: block;
+     padding-left: 4px;
+     height: 60px;
+     line-height: 28px;
+     white-space: normal;
+}
+
+.navigation .logout a .title:hover {
+     color: #c94444;
+}
+
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: rgba(30,21,47,0.90);
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle ion-icon {
+    font-size: 30px;
+    margin-top: 3px;
+    display: block;
+    color: #ffffff;
+    pointer-events: none;
+}
+.wrap-left {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    float: left;
+}
+    .wrap-left .search-group.textbox{
+        border:1px solid #b06ab3;
+        width: 13px;
+        height:1px;
+    }
+    .wrap-left .search-group button.button-class {
+        border: 5em;
+        cursor: pointer;
+        outline: none;
+        font-size: 10px;
+        -webkit-transform: translate(0);
+        transform: translate(0);
+        background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+        padding: 0.7em 2em;
+        border-radius: 65px;
+        box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+        -webkit-transition: box-shadow 0.25s;
+        transition: box-shadow 0.25s;
+        color: white;
+    }
+        .wrap-left .search-group button.button-class ion-icon{
+            font-size: 1.5em;
+        }
+        .wrap-left .search-group button.button-class::after {
+            content: "";
+            border-radius: 18px;
+            position: absolute;
+            margin: 4px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            background: #0e0e10;
+        }
+        .wrap-left .search-group button.button-class:hover {
+            background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+            box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+        }
+.table-wrapper {
+      position: relative;
+}
+
+.search-group {
+    position: absolute;
+    margin-bottom: 40px;
+    margin-left: 70px;
+    float: left;
+}
+
+.table-wrapper .search-group {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.wrap-right {
+    width: 80%;
+    float: right;
+    margin-top: 10px;
+}
+
+.fill-one {
+    position: relative;
+    margin: 20px;
+}
+
+.fill-one a {
+    position: relative;
+    display: block;
+    display: flex;
+    text-decoration: none;
+    color: #ffffff;
+    bottom: 30px;
+    left: 83%;
+}
+
+.fill-one a .icon {
+    position: relative;
+    min-width: 20px;
+    height: 10px;
+}
+
+.fill-one a .icon ion-icon {
+    pointer-events: none;
+    font-size: 2.4em;
+}
+.fill-one a .icon:hover {
+    color: red;
+}
+.container {
+    position: relative;
+}
+.container .picture{
+    position: relative;
+}
+.container .picture img {
+    position: relative;
+    margin-top: 30px;
+    top:50px;
+    left: 20%;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+    .container .picture img.picture-1 {
+        position: relative;
+        margin-right: 60px;
+        width: 30%;
+        height: 20%;
+        transform: rotateY(180deg);
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+.container .picture img.picture-1:hover {
+      animation: reveal 0.5s ease-in-out infinite alternate;
+      animation-delay: 0s;
+}
+.container .picture img.picture-2 {
+    position: absolute;
+    width: 30%;
+    height: 93%;
+    backface-visibility: hidden;
+    bottom:30px;
+    margin-left: 30%;
+}
+    .container .picture img.picture-2:hover {
+        animation: reveal 0.5s ease-in-out infinite alternate;
+        animation-delay: 0s;
+    }
+    .container .picture img.picture-1::before {
+        content: '';
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 60%;
+        background: none;
+        z-index: 1;
+        transform-origin: right;
+    }
+@keyframes reveal {
+    0% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+.contect {
+    background: #2a213a;
+}
+.contect .list-box {
+    background: #fff;
+   
+}
+.list h5 {
+    display: block;
+    padding: 23px;
+    font: bold 18px/16px "Arial";
+    color: #fff;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    border-bottom: 2px solid #FC3019;
+    margin-top:55px;
+}
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+.group {
+    zoom: 1;
+}
+.group:after {
+    clear: both;
+}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+.grid_1_of_5 {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.grid_1_of_5:first-child {
+    margin-left: 10px;
+}
+.images_1_of_5 {
+    width: 18.5%;
+    padding: 0.8em 0 0% 0;
+    background: #2a213a;
+    text-align: center;
+    border: 1px solid #2a213a;
+}
+.images_1_of_5 img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 150px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.images_1_of_5 h3 {
+     display: block;
+     padding: 0.5em 0 0.2em 0;
+     font-family: 'Shippori Antique B1', sans-serif;
+     font-size: 0.875em;
+     color: #FFF;
+     border-right: 1px solid #2a213a;
+     text-transform: uppercase;
+}
+.images_1_of_5 p {
+     font-size: 0.8125em;
+     color: #989898;
+     line-height: 1.6em;
+     font-family: verdana, arial, helvetica, helve, sans-serif;
+}
+.images_1_of_5:hover {
+     border: 1px solid #FC3019;
+}
+
+.table-wrapper {
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    top:20px;
+}
+.fl-table {
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: #2a213a;
+    top: 20px;
+}
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #2a213a;
+    font-size: 13px;
+    color: #fff;
+    border-bottom: 1px solid rgba( 0, 0, 0, 0.2 );
+}
+    /*cot 2*/
+.fl-table thead th {
+    color: #ffffff;
+    background: #dc3264;
+}
+        /*cot 1*/
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #942687;
+}
+
+    .fl-table tr:nth-child(even) {
+        background: #2a213a;
+        color: #fff;
+    }
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+
+    .table-wrapper:before {
+        content: " ";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+
+.fl-table thead th:last-child {
+       border-bottom: #942687;
+}
+
+    .fl-table thead {
+        float: left;
+    }
+
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    /*dong 2*/
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #2a213a;
+    }
+
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+
+    .fl-table tr:nth-child(even) {
+        background: #2a213a;
+    }
+
+    .fl-table tr td:nth-child(odd) {
+        background: #2a213a;
+        border-right: 1px solid #2a213a;
+    }
+
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #2a213a;
+    }
+
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+h2 {
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+    margin-top:60px;
+}
+
+.text {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    margin-top: 120px;
+}
+
+.icon-content{
+    position: relative;
+}
+.icon-content a {
+    position: relative;
+    display: block;
+    width: 30px;
+    display: flex;
+    color: #ffffff;
+}
+.icon-content a .icon {
+    position: relative;
+    display: block;
+    min-width: 50px;
+    height: 20px;
+    text-align: right;
+}
+.icon-content a .icon ion-icon {
+    pointer-events: none;
+    font-size: 1.5em;
+}
+.icon-content a .icon:hover{
+    color:red;
+}
+
+

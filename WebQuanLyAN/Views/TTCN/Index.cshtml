@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebQuanLyAN.Models.Ac>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+
+@if ((string)TempData["TB"] == "true")
+{
+    <script>alert('"Đổi mật khẩu thành công!"')</script>
+    TempData["TB"] = "null";
+}
+@if ((string)TempData["TBT"] == "true")
+{
+    <script>alert('Sửa tên thành công')</script>
+    TempData["TBT"] = "null";
+}
+
+<h2 class="text" style="text-align:center">Thông tin tài khoản</h2>
+
+<div class="table-wrapper">
+    <table class="fl-table">
+        <tbody>
+            @foreach (var item in ViewBag.data)
+            {
+                <tr>
+                    <td>Họ Tên</td>
+                    <td>@item.HoTen</td>
+                    <td>
+                        <div class="icon-content">
+                            <a href="/TTCN/EditHoTen?tk=@item.TaiKhoan">
+                                <span class="icon" title="Sửa"><ion-icon name="create-outline"></ion-icon></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tài khoản</td>
+                    <td>@item.TaiKhoan</td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td> @item.MatKhau</td>
+                    <td>
+                        <div class="icon-content">
+                            <a href="/TTCN/Edit?tk=@item.TaiKhoan">
+                                <span class="icon" title="Sửa"><ion-icon name="create-outline"></ion-icon></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+

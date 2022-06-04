@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+@if ((string)TempData["IsLoginSuccess"] == "true")
+{
+<script>alert('Đăng nhập thành công!')</script>
+    TempData["IsLoginSuccess"] = "null";
+}
+<body>
+    <div class="container">
+        <div class="picture">
+            <img class="picture-2" src="~/image/hãy trao cho anh.jpg" alt="Hãy trao cho anh">
+            <img class="picture-1" src="~/image/Muonruisaocon.jpg" alt="Muộn rồi mà sao còn">
+        </div>
+    </div>
+    <div class="content">
+        <div class="list-box">
+            <div class="list">
+                <h5>Danh Sách Bài Hát Nổi Bật</h5>
+                <div class="section group">
+                    <div class="grid_1_of_5 images_1_of_5">
+                        <img src="~/image/lactroi.jpg">
+                        <h3>Lạc Trôi</h3>
+                        <p>Sơn Tùng MTP</p>
+                    </div>
+                    <div class="grid_1_of_5 images_1_of_5">
+                        <img src="~/image/emcuangayhumqua.jpg">
+                        <h3>Em Của Ngày Hôm Qua</h3>
+                        <p>Sơn Tùng MTP</p>
+                    </div>
+                    <div class="grid_1_of_5 images_1_of_5">
+                        <img src="~/image/chungtakhongthuoc ve nhau.jpg">
+                        <h3>Chúng Ta Không Thuộc Về Nhau</h3>
+                        <p>Sơn Tùng MTP</p>
+                    </div>
+                    <div class="grid_1_of_5 images_1_of_5">
+                        <img src="~/image/backimthag.jpg">
+                        <h3>Bắc Kim Thang</h3>
+                        <p>Ricky Star</p>
+                    </div>
+                    <div class="grid_1_of_5 images_1_of_5">
+                        <img src="~/image/danchsxom.jpg">
+                        <h3>Dân Chơi Xóm</h3>
+                        <p>JustaTee - MCK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+

@@ -1,0 +1,63 @@
+﻿@model WebQuanLyAN.Models.Ac
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+
+@if ((string)TempData["TB"] == "false")
+{
+    <script>alert('Mật khẩu cũ không chính xác')</script>
+    TempData["TB"] = "null";
+}
+@if ((string)TempData["TB"] == "khac")
+{
+    <script>alert('Mật khẩu mới không khớp')</script>
+    TempData["TB"] = "null";
+}
+<h2>Đổi mật khẩu</h2>
+
+
+<div class="table-wrapper">
+    @using (Html.BeginForm("sua", "TTCN"))
+    {
+        <table class="fl-table">
+            <tr>
+                <td> @Html.HiddenFor(model => model.TaiKhoan)</td>
+            </tr>
+            <tr>
+                <td> @Html.HiddenFor(model => model.HoTen)</td>
+            </tr>
+            <tr>
+                <td>
+                    Mật khẩu cũ
+                </td>
+                <td>
+                    <input class="form-input" type="password" placeholder="Nhập mật khẩu" id="MatKhauCu" name="MatKhauCu">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Mật khẩu mới
+                </td>
+                <td>
+                    <input class="form-input" type="password" placeholder="Nhập mật khẩu mới" id="MatKhau" name="MatKhau">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nhập lại mật khẩu mới
+                </td>
+                <td>
+                    <input class="form-input" type="password" placeholder="Nhập lại mật khẩu mới" id="MatKhau1" name="MatKhau1">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Cập nhật" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

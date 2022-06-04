@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebQuanLyAN.Models.Baihat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+<h2 class="text" style="text-align:center">Danh sách bài hát</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+@using (Html.BeginForm("Search", "DSBH", FormMethod.Get))
+{
+<div class="wrap-left">
+    <div class="search-group">
+        @Html.TextBox("search") <button class="button-class" type="submit"><ion-icon name="search-outline"></ion-icon></button>
+    </div>
+</div>
+<div class="wrap-right">
+    <div class="fill-one">
+        <a href="/DSBH/Create">
+            <span class="icon" title="Thêm mới thể loại"><ion-icon name="add-circle-outline"></ion-icon></span>
+        </a>
+    </div>
+</div>
+
+}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Tên Bài Hát</th>
+                <th>Ca Sĩ</th>
+                <th>Thể Loại</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenBH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nhacsi.tenNS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Theloai.tenTL)
+                    </td>
+                    <td>
+                        <div class="icon-content">
+                            <a href="/DSBH/Edit?id=@item.Id">
+                                <span class="icon" title="Sửa"><ion-icon name="create-outline"></ion-icon></span>
+                            </a>
+                            <a href="/DSBH/Delete?id=@item.Id">
+                                <span class="icon" title="Xóa"><ion-icon name="trash-outline"></ion-icon></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+

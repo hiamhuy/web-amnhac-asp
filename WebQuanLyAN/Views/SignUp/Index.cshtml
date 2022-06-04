@@ -1,0 +1,77 @@
+﻿@model WebQuanLyAN.Models.Ac
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SignUp.cshtml";
+}
+@if ((string)TempData["ThongBao"] == "false")
+{
+    <script>alert('"Đăng ký thất bại"')</script>
+    TempData["ThongBao"] = "null";
+}
+
+<div>
+    <div>
+        <div class="overlay">
+            @using (Html.BeginForm("add", "SignUp"))
+            {
+                <form>
+                    <div class="con">
+                        <header class="head-form">
+                            <h2>Đăng Ký</h2>
+                        </header>
+                        <br>
+                        <div class="field-set">
+                            Họ Và Tên :
+                            <span class="input-item">
+                                <i class="fa fa-user-circle"></i>
+                            </span>
+
+                            <input class="form-input" id="HoTen" type="text" placeholder="Họ Và Tên " name="HoTen" />
+                            <br />
+                            Email/SĐT :
+                            <span class="input-item">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                            @*user name Input*@
+                            <input class="form-input" id="TaiKhoan" type="text" placeholder="Email/SĐT" name="TaiKhoan">
+
+                            <br />
+                            Mật Khẩu:
+                            <!--   Password -->
+                            <span class="input-item">
+                                <i class="fa fa-key"></i>
+                            </span>
+                            <!--   Password Input-->
+                            <input class="form-input" aria-hidden="false" type="password" placeholder="Password" id="MatKhau" name="MatKhau">
+
+                            <!--  Show/hide password  -->
+                            <span>
+                                <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                            </span>
+                            <br>
+                            <br />
+                            <div>
+                                <button class="sign-up-sign-up"> Đăng ký </button>
+                            </div>
+
+                            <br />
+                            <div class="other">
+                                <div class="btn">
+                                    <a href="@Url.Action("Index","Login")">
+                                        Đăng Nhập
+                                        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,45 @@
+﻿@model WebQuanLyAN.Models.Theloai
+@{
+    ViewBag.Title = "them";
+    Layout = "~/Views/Shared/GUI.cshtml";
+}
+
+<h2 class="text1" style="text-align:center">THÊM THỂ LOẠI NHẠC</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="text/javascript" charset="UTF-8"
+            type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["ThongBao"]");
+        };
+    </script>
+}
+<div class="table-wrapper">
+    @using (Html.BeginForm("them", "TheLoai"))
+    {
+        <table class="fl-table">
+            <tr>
+               <td>
+                   Tên thể loại:
+               </td>
+               <td>
+                   @Html.EditorFor(Model => Model.tenTL)
+               </td>
+           </tr>
+           <tr>
+               <td>Mô tả :</td>
+               <td>
+                   @Html.EditorFor(Model => Model.mota)
+               </td>
+           </tr>
+               <tr>
+                   <td></td>
+                   <td>
+                       <input type="submit" value="Thêm" />
+                   </td>
+               </tr>
+        </table>
+     }
+</div>
+
+

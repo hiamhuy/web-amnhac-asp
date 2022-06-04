@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLAMNHACVNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ac">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Baihat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenBH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nhacS" Type="Int32" Nullable="false" />
+    <Property Name="theL" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nhacsi" Relationship="Self.FK__Baihat__nhacS__0BC6C43E" FromRole="Baihat" ToRole="Nhacsi" />
+    <NavigationProperty Name="Theloai" Relationship="Self.FK__Baihat__theL__0CBAE877" FromRole="Baihat" ToRole="Theloai" />
+    <NavigationProperty Name="Nhacsi1" Relationship="Self.FK_Baihat_NhacS" FromRole="Baihat" ToRole="Nhacsi" />
+    <NavigationProperty Name="Theloai1" Relationship="Self.FK_Baihat_Theloai" FromRole="Baihat" ToRole="Theloai" />
+  </EntityType>
+  <EntityType Name="Nhacsi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenNS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="namS" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="queQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Baihats" Relationship="Self.FK__Baihat__nhacS__0BC6C43E" FromRole="Nhacsi" ToRole="Baihat" />
+    <NavigationProperty Name="Baihats1" Relationship="Self.FK_Baihat_NhacS" FromRole="Nhacsi" ToRole="Baihat" />
+  </EntityType>
+  <EntityType Name="Theloai">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenTL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Baihats" Relationship="Self.FK__Baihat__theL__0CBAE877" FromRole="Theloai" ToRole="Baihat" />
+    <NavigationProperty Name="Baihats1" Relationship="Self.FK_Baihat_Theloai" FromRole="Theloai" ToRole="Baihat" />
+  </EntityType>
+  <EntityType Name="thongtinnhac">
+    <Key>
+      <PropertyRef Name="tenBH" />
+      <PropertyRef Name="tenTL" />
+    </Key>
+    <Property Name="tenBH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenNS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tenTL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Baihat__nhacS__0BC6C43E">
+    <End Role="Nhacsi" Type="Self.Nhacsi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhacsi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="nhacS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Baihat__theL__0CBAE877">
+    <End Role="Theloai" Type="Self.Theloai" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theloai">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="theL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Baihat_NhacS">
+    <End Role="Nhacsi" Type="Self.Nhacsi" Multiplicity="1" />
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhacsi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="nhacS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Baihat_Theloai">
+    <End Role="Theloai" Type="Self.Theloai" Multiplicity="1" />
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theloai">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="theL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLAMNHACVNEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Acs" EntityType="Self.Ac" />
+    <EntitySet Name="Baihats" EntityType="Self.Baihat" />
+    <EntitySet Name="Nhacsis" EntityType="Self.Nhacsi" />
+    <EntitySet Name="Theloais" EntityType="Self.Theloai" />
+    <EntitySet Name="thongtinnhacs" EntityType="Self.thongtinnhac" />
+    <AssociationSet Name="FK__Baihat__nhacS__0BC6C43E" Association="Self.FK__Baihat__nhacS__0BC6C43E">
+      <End Role="Nhacsi" EntitySet="Nhacsis" />
+      <End Role="Baihat" EntitySet="Baihats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Baihat__theL__0CBAE877" Association="Self.FK__Baihat__theL__0CBAE877">
+      <End Role="Theloai" EntitySet="Theloais" />
+      <End Role="Baihat" EntitySet="Baihats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Baihat_NhacS" Association="Self.FK_Baihat_NhacS">
+      <End Role="Nhacsi" EntitySet="Nhacsis" />
+      <End Role="Baihat" EntitySet="Baihats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Baihat_Theloai" Association="Self.FK_Baihat_Theloai">
+      <End Role="Theloai" EntitySet="Theloais" />
+      <End Role="Baihat" EntitySet="Baihats" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
